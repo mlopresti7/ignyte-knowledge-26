@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ignyte Group — Digital Transformation Consultancy & ServiceNow Partner. Virtual business card for Knowledge 2026.">
+<meta name="theme-color" content="#0A0E1A">
+<title>Ignyte Group · Knowledge 2026</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ignyte-orange: #FF5A1F;
+    --ignyte-orange-bright: #FF7A3D;
+    --ignyte-orange-deep: #E8410A;
+    --ignyte-yellow: #FFB627;
+    --ink: #0A0E1A;
+    --ink-2: #141A2C;
+    --ink-3: #1E2538;
+    --paper: #FAF7F2;
+    --paper-2: #F0EBE3;
+    --line: rgba(255, 90, 31, 0.18);
+    --text: #0A0E1A;
+    --text-soft: rgba(10, 14, 26, 0.65);
+    --text-faint: rgba(10, 14, 26, 0.4);
+    --white-soft: rgba(250, 247, 242, 0.92);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--paper);
+    color: var(--text);
+    line-height: 1.55;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .display { font-family: 'Fraunces', serif; font-optical-sizing: auto; letter-spacing: -0.02em; }
+  .mono { font-family: 'Inter', sans-serif; font-feature-settings: "tnum"; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.72rem; font-weight: 500; }
+
+  /* ============================================ */
+  /* HERO                                          */
+  /* ============================================ */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    background: var(--ink);
+    color: var(--paper);
+    overflow: hidden;
+    padding: 2rem 1.5rem 4rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 85% 15%, rgba(255, 90, 31, 0.35) 0%, transparent 50%),
+      radial-gradient(circle at 15% 90%, rgba(255, 182, 39, 0.18) 0%, transparent 45%),
+      radial-gradient(circle at 50% 50%, rgba(232, 65, 10, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9' /%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+    opacity: 0.06;
+    pointer-events: none;
+  }
+
+  .hero-nav {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .logo-img {
+    height: 40px;
+    width: auto;
+    display: block;
+  }
+
+  @media (max-width: 640px) {
+    .logo-img { height: 32px; }
+  }
+
+  .hero-context {
+    color: var(--ignyte-orange-bright);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: auto auto 0;
+    width: 100%;
+    padding: 4rem 0 2rem;
+  }
+
+  .hero-event-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255, 90, 31, 0.35);
+    border-radius: 100px;
+    background: rgba(255, 90, 31, 0.08);
+    backdrop-filter: blur(10px);
+    margin-bottom: 2rem;
+    font-size: 0.78rem;
+    color: var(--ignyte-orange-bright);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-event-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--ignyte-orange);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--ignyte-orange);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.4); }
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(2.8rem, 9vw, 6.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 .accent {
+    font-style: italic;
+    font-weight: 400;
+    background: linear-gradient(135deg, var(--ignyte-orange-bright) 0%, var(--ignyte-yellow) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-tagline {
+    max-width: 560px;
+    font-size: clamp(1rem, 2.4vw, 1.2rem);
+    color: rgba(250, 247, 242, 0.75);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+  }
+
+  .hero-tagline strong {
+    color: var(--paper);
+    font-weight: 500;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(250, 247, 242, 0.1);
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .meta-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(250, 247, 242, 0.5);
+  }
+
+  .meta-value {
+    font-family: 'Fraunces', serif;
+    font-size: 1.05rem;
+    color: var(--paper);
+  }
+
+  .meta-value a {
+    color: var(--ignyte-orange-bright);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .meta-value a:hover { border-bottom-color: var(--ignyte-orange-bright); }
+
+  /* Scroll cue */
+  .scroll-cue {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(250, 247, 242, 0.5);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .scroll-cue::after {
+    content: '';
+    width: 1px;
+    height: 30px;
+    background: linear-gradient(to bottom, var(--ignyte-orange), transparent);
+    animation: scrollDown 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollDown {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  /* ============================================ */
+  /* AWARDS                                        */
+  /* ============================================ */
+  .awards {
+    padding: 5rem 1.5rem;
+    background: var(--paper);
+    position: relative;
+  }
+
+  .awards-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 1.5rem;
+    color: var(--ignyte-orange-deep);
+    font-weight: 600;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--ignyte-orange-deep);
+  }
+
+  .awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .award-card {
+    background: linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 100%);
+    color: var(--paper);
+    padding: 2.5rem 2rem;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 90, 31, 0.2);
+  }
+
+  .award-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 90, 31, 0.2) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .award-year {
+    font-family: 'Fraunces', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--ignyte-orange-bright);
+    margin-bottom: 1rem;
+    position: relative;
+  }
+
+  .award-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    position: relative;
+  }
+
+  .award-subtitle {
+    color: rgba(250, 247, 242, 0.6);
+    font-size: 0.9rem;
+    position: relative;
+  }
+
+  .award-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 50px;
+    height: 50px;
+    opacity: 0.9;
+  }
+
+  /* ============================================ */
+  /* SOLUTIONS                                     */
+  /* ============================================ */
+  .solutions {
+    padding: 6rem 1.5rem;
+    background: var(--paper-2);
+    position: relative;
+  }
+
+  .solutions-inner { max-width: 1200px; margin: 0 auto; }
+
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+    max-width: 720px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--ignyte-orange-deep);
+  }
+
+  .section-intro {
+    max-width: 560px;
+    color: var(--text-soft);
+    font-size: 1.05rem;
+    margin-bottom: 3rem;
+  }
+
+  .solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .solution {
+    background: var(--paper);
+    padding: 2.2rem 1.8rem;
+    transition: background 0.3s;
+    position: relative;
+  }
+
+  .solution:hover { background: var(--paper-2); }
+
+  .solution-num {
+    font-family: 'Fraunces', serif;
+    font-size: 0.85rem;
+    color: var(--ignyte-orange-deep);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .solution-icon {
+    width: 38px; height: 38px;
+    margin-bottom: 1.2rem;
+    color: var(--ignyte-orange-deep);
+  }
+
+  .solution-name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+  }
+
+  .solution-desc {
+    color: var(--text-soft);
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  /* ============================================ */
+  /* TEAM                                          */
+  /* ============================================ */
+  .team {
+    padding: 6rem 1.5rem;
+    background: var(--paper);
+  }
+
+  .team-inner { max-width: 1200px; margin: 0 auto; }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .person {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 1.5rem;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .person::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--ignyte-orange), var(--ignyte-yellow));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .person:hover { border-color: var(--ignyte-orange); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255, 90, 31, 0.12); }
+  .person:hover::before { transform: scaleX(1); }
+
+  .person-avatar {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--ignyte-orange) 0%, var(--ignyte-orange-deep) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--paper);
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .person-name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+    line-height: 1.2;
+  }
+
+  .person-title {
+    font-size: 0.85rem;
+    color: var(--text-soft);
+    margin-bottom: 1rem;
+    min-height: 2.6em;
+  }
+
+  .person-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--ignyte-orange-deep);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .person-link svg { width: 14px; height: 14px; }
+  .person-link:hover { color: var(--ignyte-orange); }
+
+  /* ============================================ */
+  /* CTA                                           */
+  /* ============================================ */
+  .cta {
+    padding: 6rem 1.5rem;
+    background: var(--ink);
+    color: var(--paper);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 50%, rgba(255, 90, 31, 0.25) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 182, 39, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .cta-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+  }
+
+  .cta-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-title em {
+    font-style: italic;
+    color: var(--ignyte-orange-bright);
+  }
+
+  .cta-subtitle {
+    color: rgba(250, 247, 242, 0.7);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 4rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1rem 2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+  }
+
+  .btn-primary {
+    background: var(--ignyte-orange);
+    color: var(--paper);
+  }
+
+  .btn-primary:hover {
+    background: var(--ignyte-orange-bright);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 90, 31, 0.4);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--paper);
+    border-color: rgba(250, 247, 242, 0.3);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--ignyte-orange-bright);
+    color: var(--ignyte-orange-bright);
+  }
+
+  .btn svg { width: 16px; height: 16px; }
+
+  .cta-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(250, 247, 242, 0.1);
+    text-align: left;
+  }
+
+  .info-item .meta-label { color: rgba(250, 247, 242, 0.5); }
+  .info-item .meta-value { color: var(--paper); font-size: 0.95rem; }
+  .info-item a { color: var(--ignyte-orange-bright); text-decoration: none; }
+
+  /* ============================================ */
+  /* FOOTER                                        */
+  /* ============================================ */
+  footer {
+    background: var(--ink);
+    color: rgba(250, 247, 242, 0.5);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255, 90, 31, 0.15);
+  }
+
+  footer .socials {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  footer .socials a {
+    color: rgba(250, 247, 242, 0.5);
+    transition: color 0.2s;
+  }
+
+  footer .socials a:hover { color: var(--ignyte-orange-bright); }
+  footer .socials svg { width: 18px; height: 18px; }
+
+  /* ============================================ */
+  /* MOBILE                                        */
+  /* ============================================ */
+  @media (max-width: 640px) {
+    .hero { padding: 1.5rem 1.2rem 3rem; }
+    .hero-content { padding: 2rem 0 1rem; }
+    .hero-meta { gap: 1.5rem; }
+    .scroll-cue { display: none; }
+    .awards, .solutions, .team, .cta { padding: 4rem 1.2rem; }
+    .award-card { padding: 2rem 1.5rem; }
+    .award-year { font-size: 3rem; }
+    .cta-buttons { flex-direction: column; align-items: stretch; }
+    .btn { justify-content: center; }
+  }
+
+  /* ============================================ */
+  /* SUBTLE ENTRY ANIMATION                        */
+  /* ============================================ */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+  .delay-5 { animation-delay: 0.5s; }
+
+</style>
+</head>
+<body>
+
+<!-- ============================================ -->
+<!-- HERO                                          -->
+<!-- ============================================ -->
+<section class="hero">
+  <nav class="hero-nav">
+    <a href="https://ignytegroup.com" class="hero-logo">
+      <img src="ignyte-logo.png" alt="Ignyte" class="logo-img">
+    </a>
+    <span class="hero-context">DC · McLean</span>
+  </nav>
+
+  <div class="hero-content">
+    <div class="hero-event-tag fade-in">
+      Live at Knowledge 2026 · Las Vegas
+    </div>
+    <h1 class="fade-in delay-1">
+      Where mission<br>
+      meets <span class="accent">momentum.</span>
+    </h1>
+    <p class="hero-tagline fade-in delay-2">
+      <strong>Ignyte</strong> is a digital transformation consultancy and ServiceNow partner — purpose-built for regulated industries where the work has to be right the first time.
+    </p>
+
+    <div class="hero-meta fade-in delay-3">
+      <div class="meta-item">
+        <span class="meta-label">Find us</span>
+        <span class="meta-value"><a href="https://ignytegroup.com">ignytegroup.com</a></span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Reach out</span>
+        <span class="meta-value"><a href="mailto:info@ignytegroup.com">info@ignytegroup.com</a></span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Headquarters</span>
+        <span class="meta-value">McLean, Virginia</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue">Scroll</div>
+</section>
+
+<!-- ============================================ -->
+<!-- AWARDS                                        -->
+<!-- ============================================ -->
+<section class="awards">
+  <div class="awards-inner">
+    <div class="section-eyebrow mono">ServiceNow Partner of the Year</div>
+    <h2 class="section-title">Recognized two years <em>running.</em></h2>
+
+    <div class="awards-grid">
+      <div class="award-card">
+        <svg class="award-badge" viewBox="0 0 50 50" fill="none">
+          <circle cx="25" cy="25" r="23" stroke="#FF7A3D" stroke-width="1" fill="none"/>
+          <path d="M25 8 L29 20 L42 20 L31 28 L35 40 L25 32 L15 40 L19 28 L8 20 L21 20 Z" fill="#FF7A3D"/>
+        </svg>
+        <div class="award-year">2025</div>
+        <div class="award-title">GenAI Customer Value Partner of the Year</div>
+        <div class="award-subtitle">Americas — ServiceNow</div>
+      </div>
+
+      <div class="award-card">
+        <svg class="award-badge" viewBox="0 0 50 50" fill="none">
+          <circle cx="25" cy="25" r="23" stroke="#FF7A3D" stroke-width="1" fill="none"/>
+          <path d="M25 8 L29 20 L42 20 L31 28 L35 40 L25 32 L15 40 L19 28 L8 20 L21 20 Z" fill="#FFB627"/>
+        </svg>
+        <div class="award-year">2026</div>
+        <div class="award-title">US State &amp; Local Government Partner of the Year</div>
+        <div class="award-subtitle">ServiceNow</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SOLUTIONS                                     -->
+<!-- ============================================ -->
+<section class="solutions">
+  <div class="solutions-inner">
+    <div class="section-eyebrow mono">What we do</div>
+    <h2 class="section-title">Four capabilities. <em>One throughline:</em> outcomes.</h2>
+    <p class="section-intro">
+      We help clients automate, modernize, and transform on ServiceNow, Appian, and Databricks — combining AI, intelligent automation, and human-centered design to move from strategy to working software.
+    </p>
+
+    <div class="solutions-grid">
+      <div class="solution">
+        <span class="solution-num">01</span>
+        <svg class="solution-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+        </svg>
+        <h3 class="solution-name">Digital Transformation &amp; Automation</h3>
+        <p class="solution-desc">Integrating new technologies to automate manual work, sharpen customer engagement, and reveal what's actually happening in operations.</p>
+      </div>
+
+      <div class="solution">
+        <span class="solution-num">02</span>
+        <svg class="solution-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
+        </svg>
+        <h3 class="solution-name">Customer &amp; Employee Experience</h3>
+        <p class="solution-desc">Experience is the foundation of every digital capability. We design intuitive, streamlined journeys that meet people where they are.</p>
+      </div>
+
+      <div class="solution">
+        <span class="solution-num">03</span>
+        <svg class="solution-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M2 12h4l3-9 6 18 3-9h4"/>
+        </svg>
+        <h3 class="solution-name">Digital Technology Innovation</h3>
+        <p class="solution-desc">End-to-end support for evaluating and implementing emerging tech — from AI agents to platform engineering — to address specific business challenges.</p>
+      </div>
+
+      <div class="solution">
+        <span class="solution-num">04</span>
+        <svg class="solution-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 3v18h18"/>
+          <path d="M7 14l4-4 3 3 5-6"/>
+        </svg>
+        <h3 class="solution-name">Data &amp; Analytics</h3>
+        <p class="solution-desc">We help clients turn data into decisions — modernizing analytics, unlocking insight, and putting it in the hands of the people who need it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- TEAM                                          -->
+<!-- ============================================ -->
+<section class="team">
+  <div class="team-inner">
+    <div class="section-eyebrow mono">The Knowledge 2026 crew</div>
+    <h2 class="section-title">Say hi to <em>the team.</em></h2>
+    <p class="section-intro">
+      The folks below are on the ground at Knowledge 2026. Reach out, grab coffee, talk shop — we'd love to meet you.
+    </p>
+
+    <div class="team-grid">
+      <!-- Person cards (placeholders — easy to edit) -->
+      <div class="person">
+        <div class="person-avatar">FN</div>
+        <div class="person-name">First Name Last</div>
+        <div class="person-title">Role / Title at Ignyte</div>
+        <a href="https://www.linkedin.com/in/PLACEHOLDER" class="person-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="person">
+        <div class="person-avatar">FN</div>
+        <div class="person-name">First Name Last</div>
+        <div class="person-title">Role / Title at Ignyte</div>
+        <a href="https://www.linkedin.com/in/PLACEHOLDER" class="person-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="person">
+        <div class="person-avatar">FN</div>
+        <div class="person-name">First Name Last</div>
+        <div class="person-title">Role / Title at Ignyte</div>
+        <a href="https://www.linkedin.com/in/PLACEHOLDER" class="person-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="person">
+        <div class="person-avatar">FN</div>
+        <div class="person-name">First Name Last</div>
+        <div class="person-title">Role / Title at Ignyte</div>
+        <a href="https://www.linkedin.com/in/PLACEHOLDER" class="person-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="person">
+        <div class="person-avatar">FN</div>
+        <div class="person-name">First Name Last</div>
+        <div class="person-title">Role / Title at Ignyte</div>
+        <a href="https://www.linkedin.com/in/PLACEHOLDER" class="person-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="person">
+        <div class="person-avatar">FN</div>
+        <div class="person-name">First Name Last</div>
+        <div class="person-title">Role / Title at Ignyte</div>
+        <a href="https://www.linkedin.com/in/PLACEHOLDER" class="person-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- CTA                                           -->
+<!-- ============================================ -->
+<section class="cta">
+  <div class="cta-inner">
+    <h2 class="cta-title">Let's <em>talk.</em></h2>
+    <p class="cta-subtitle">
+      Whether you're rethinking customer experience, scaling AI responsibly, or modernizing the platform under it all — we're up for the conversation.
+    </p>
+
+    <div class="cta-buttons">
+      <a href="mailto:info@ignytegroup.com" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        info@ignytegroup.com
+      </a>
+      <a href="https://ignytegroup.com" class="btn btn-secondary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        ignytegroup.com
+      </a>
+    </div>
+
+    <div class="cta-info">
+      <div class="info-item meta-item">
+        <span class="meta-label">Headquarters</span>
+        <span class="meta-value">8260 Greensboro Dr, Suite 503<br>McLean, VA 22102</span>
+      </div>
+      <div class="info-item meta-item">
+        <span class="meta-label">Partners</span>
+        <span class="meta-value">ServiceNow · Appian · Databricks</span>
+      </div>
+      <div class="info-item meta-item">
+        <span class="meta-label">Industries</span>
+        <span class="meta-value">Public Sector · Healthcare · Financial Services · Higher Ed · Real Estate · Transportation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="socials">
+    <a href="https://www.linkedin.com/company/ignyte-group/" aria-label="LinkedIn" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+    </a>
+    <a href="https://twitter.com/IgnyteGroup" aria-label="Twitter" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/ignytegroup/" aria-label="Instagram" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+    <a href="https://www.facebook.com/ignytegroup/" aria-label="Facebook" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+    </a>
+  </div>
+  <div>© 2026 Ignyte Group · McLean, Virginia</div>
+</footer>
+
+</body>
+</html>
