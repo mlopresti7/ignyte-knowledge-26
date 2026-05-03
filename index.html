@@ -108,11 +108,23 @@
   }
 
   .hero-context {
-    color: var(--ignyte-orange-bright);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-size: 0.7rem;
-    font-weight: 600;
+    display: flex;
+    align-items: center;
+  }
+
+  .elite-badge {
+    height: 56px;
+    width: auto;
+    display: block;
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.25s ease;
+  }
+
+  .elite-badge:hover { transform: scale(1.05); }
+
+  @media (max-width: 640px) {
+    .elite-badge { height: 44px; }
   }
 
   .hero-content {
@@ -124,6 +136,109 @@
     padding: 4rem 0 2rem;
   }
 
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 4rem;
+    align-items: end;
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  /* Solutions list (right column of hero) */
+  .hero-right {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 2rem;
+  }
+
+  .solutions-list-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ignyte-orange-bright);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .solutions-list-label::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--ignyte-orange-bright);
+  }
+
+  .solutions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid rgba(255, 90, 31, 0.18);
+  }
+
+  .solutions-list li {
+    border-bottom: 1px solid rgba(255, 90, 31, 0.18);
+  }
+
+  .solutions-list a {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.95rem 0.5rem;
+    color: var(--paper);
+    text-decoration: none;
+    font-family: 'Fraunces', serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    transition: all 0.25s ease;
+    position: relative;
+  }
+
+  .solutions-list a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(255, 90, 31, 0.12), transparent);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+  }
+
+  .solutions-list a:hover { padding-left: 1rem; color: var(--ignyte-orange-bright); }
+  .solutions-list a:hover::before { opacity: 1; }
+  .solutions-list a:hover .sol-arrow { transform: translate(3px, -3px); color: var(--ignyte-orange-bright); }
+
+  .sol-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgba(250, 247, 242, 0.4);
+    letter-spacing: 0.1em;
+    transition: color 0.25s;
+  }
+
+  .solutions-list a:hover .sol-num { color: var(--ignyte-orange-bright); }
+
+  .sol-name { line-height: 1.3; }
+
+  .sol-arrow {
+    font-size: 1rem;
+    color: rgba(250, 247, 242, 0.4);
+    transition: all 0.25s ease;
+    font-family: 'Inter', sans-serif;
+  }
   .hero-event-tag {
     display: inline-flex;
     align-items: center;
@@ -287,7 +402,7 @@
 
   .awards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
   }
@@ -300,6 +415,10 @@
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(255, 90, 31, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+    min-height: 200px;
   }
 
   .award-card::before {
@@ -309,42 +428,152 @@
     right: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255, 90, 31, 0.2) 0%, transparent 50%);
+    background: radial-gradient(circle, rgba(255, 90, 31, 0.18) 0%, transparent 50%);
     pointer-events: none;
+  }
+
+  .award-badge-img {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    background: var(--paper);
+    padding: 0.6rem;
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+  }
+
+  .award-card:hover .award-badge-img {
+    transform: scale(1.04) rotate(-2deg);
+  }
+
+  .award-badge-img img {
+    display: block;
+    width: 130px;
+    height: auto;
+  }
+
+  .award-text {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    min-width: 0;
   }
 
   .award-year {
     font-family: 'Fraunces', serif;
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 300;
     line-height: 1;
     color: var(--ignyte-orange-bright);
-    margin-bottom: 1rem;
-    position: relative;
+    margin-bottom: 0.6rem;
   }
 
   .award-title {
     font-family: 'Fraunces', serif;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 500;
     line-height: 1.2;
-    margin-bottom: 0.5rem;
-    position: relative;
+    margin-bottom: 0.4rem;
   }
 
   .award-subtitle {
     color: rgba(250, 247, 242, 0.6);
-    font-size: 0.9rem;
-    position: relative;
+    font-size: 0.88rem;
   }
 
-  .award-badge {
+  /* ---- Validated Practices ---- */
+  .validated {
+    margin-top: 4rem;
+    padding-top: 4rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .validated-eyebrow {
+    color: var(--ignyte-orange-deep);
+  }
+
+  .validated-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+    max-width: 600px;
+  }
+
+  .validated-title em {
+    font-style: italic;
+    color: var(--ignyte-orange-deep);
+  }
+
+  .validated-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+
+  .validated-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 1.4rem 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .validated-card::after {
+    content: '';
     position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 50px;
-    height: 50px;
-    opacity: 0.9;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--ignyte-orange), var(--ignyte-yellow));
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+  }
+
+  .validated-card:hover {
+    border-color: var(--ignyte-orange);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(255, 90, 31, 0.1);
+  }
+
+  .validated-card:hover::after { transform: scaleY(1); }
+
+  .validated-check {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    color: var(--paper);
+    background: var(--ignyte-orange-deep);
+    padding: 4px;
+    border-radius: 50%;
+    box-sizing: border-box;
+  }
+
+  .validated-name {
+    font-family: 'Fraunces', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--text);
+  }
+
+  @media (max-width: 640px) {
+    .award-card {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.2rem;
+      padding: 2rem 1.5rem;
+    }
+    .award-year { font-size: 2.5rem; }
   }
 
   /* ============================================ */
@@ -659,8 +888,6 @@
     .hero-meta { gap: 1.5rem; }
     .scroll-cue { display: none; }
     .awards, .solutions, .team, .cta { padding: 4rem 1.2rem; }
-    .award-card { padding: 2rem 1.5rem; }
-    .award-year { font-size: 3rem; }
     .cta-buttons { flex-direction: column; align-items: stretch; }
     .btn { justify-content: center; }
   }
@@ -696,34 +923,88 @@
     <a href="https://ignytegroup.com" class="hero-logo">
       <img src="ignyte-logo.png" alt="Ignyte" class="logo-img">
     </a>
-    <span class="hero-context">DC · McLean</span>
+    <span class="hero-context">
+      <img src="elite-partner.png" alt="ServiceNow Elite Partner — Consulting & Implementation" class="elite-badge">
+    </span>
   </nav>
 
   <div class="hero-content">
-    <div class="hero-event-tag fade-in">
-      Live at Knowledge 2026 · Las Vegas
-    </div>
-    <h1 class="fade-in delay-1">
-      Where mission<br>
-      meets <span class="accent">momentum.</span>
-    </h1>
-    <p class="hero-tagline fade-in delay-2">
-      <strong>Ignyte</strong> is a digital transformation consultancy and ServiceNow partner — purpose-built for regulated industries where the work has to be right the first time.
-    </p>
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-event-tag fade-in">
+          Live at Knowledge 2026 · Las Vegas
+        </div>
+        <h1 class="fade-in delay-1">
+          Where mission<br>
+          meets <span class="accent">momentum.</span>
+        </h1>
+        <p class="hero-tagline fade-in delay-2">
+          <strong>Ignyte</strong> is a digital transformation consultancy and ServiceNow partner — purpose-built for regulated industries where the work has to be right the first time.
+        </p>
 
-    <div class="hero-meta fade-in delay-3">
-      <div class="meta-item">
-        <span class="meta-label">Find us</span>
-        <span class="meta-value"><a href="https://ignytegroup.com">ignytegroup.com</a></span>
+        <div class="hero-meta fade-in delay-3">
+          <div class="meta-item">
+            <span class="meta-label">Find us</span>
+            <span class="meta-value"><a href="https://ignytegroup.com">ignytegroup.com</a></span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Reach out</span>
+            <span class="meta-value"><a href="mailto:info@ignytegroup.com">info@ignytegroup.com</a></span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Headquarters</span>
+            <span class="meta-value">McLean, Virginia</span>
+          </div>
+        </div>
       </div>
-      <div class="meta-item">
-        <span class="meta-label">Reach out</span>
-        <span class="meta-value"><a href="mailto:info@ignytegroup.com">info@ignytegroup.com</a></span>
-      </div>
-      <div class="meta-item">
-        <span class="meta-label">Headquarters</span>
-        <span class="meta-value">McLean, Virginia</span>
-      </div>
+
+      <aside class="hero-right fade-in delay-3">
+        <div class="solutions-list-label">Our Solutions</div>
+        <ul class="solutions-list">
+          <li>
+            <a href="https://ignytegroup.com/our_solutions/integrated-eligibility-and-enrollment-software/" target="_blank" rel="noopener">
+              <span class="sol-num">01</span>
+              <span class="sol-name">Integrated Eligibility &amp; Enrollment</span>
+              <span class="sol-arrow">↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://ignytegroup.com/our_solutions/constituent-experience-management-software/" target="_blank" rel="noopener">
+              <span class="sol-num">02</span>
+              <span class="sol-name">Constituent Experience Management</span>
+              <span class="sol-arrow">↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://ignytegroup.com/our_solutions/care-coordination-software/" target="_blank" rel="noopener">
+              <span class="sol-num">03</span>
+              <span class="sol-name">Care Coordination</span>
+              <span class="sol-arrow">↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://ignytegroup.com/our_solutions/investigative-case-management-icm-software/" target="_blank" rel="noopener">
+              <span class="sol-num">04</span>
+              <span class="sol-name">Investigative Case Management</span>
+              <span class="sol-arrow">↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://ignytegroup.com/our_solutions/emergency-management-software/" target="_blank" rel="noopener">
+              <span class="sol-num">05</span>
+              <span class="sol-name">Emergency Management</span>
+              <span class="sol-arrow">↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://ignytegroup.com/our_solutions/grants-management-software/" target="_blank" rel="noopener">
+              <span class="sol-num">06</span>
+              <span class="sol-name">Grants Management</span>
+              <span class="sol-arrow">↗</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
     </div>
   </div>
 
@@ -740,23 +1021,51 @@
 
     <div class="awards-grid">
       <div class="award-card">
-        <svg class="award-badge" viewBox="0 0 50 50" fill="none">
-          <circle cx="25" cy="25" r="23" stroke="#FF7A3D" stroke-width="1" fill="none"/>
-          <path d="M25 8 L29 20 L42 20 L31 28 L35 40 L25 32 L15 40 L19 28 L8 20 L21 20 Z" fill="#FF7A3D"/>
-        </svg>
-        <div class="award-year">2025</div>
-        <div class="award-title">GenAI Customer Value Partner of the Year</div>
-        <div class="award-subtitle">Americas — ServiceNow</div>
+        <div class="award-badge-img">
+          <img src="genai-2025.png" alt="ServiceNow 2025 GenAI Customer Value Partner of the Year">
+        </div>
+        <div class="award-text">
+          <div class="award-year">2025</div>
+          <div class="award-title">GenAI Customer Value Partner of the Year</div>
+          <div class="award-subtitle">Americas — ServiceNow</div>
+        </div>
       </div>
 
       <div class="award-card">
-        <svg class="award-badge" viewBox="0 0 50 50" fill="none">
-          <circle cx="25" cy="25" r="23" stroke="#FF7A3D" stroke-width="1" fill="none"/>
-          <path d="M25 8 L29 20 L42 20 L31 28 L35 40 L25 32 L15 40 L19 28 L8 20 L21 20 Z" fill="#FFB627"/>
-        </svg>
-        <div class="award-year">2026</div>
-        <div class="award-title">US State &amp; Local Government Partner of the Year</div>
-        <div class="award-subtitle">ServiceNow</div>
+        <div class="award-badge-img">
+          <img src="sandl-2026.png" alt="ServiceNow 2026 US State & Local Government Partner of the Year">
+        </div>
+        <div class="award-text">
+          <div class="award-year">2026</div>
+          <div class="award-title">US State &amp; Local Government Partner of the Year</div>
+          <div class="award-subtitle">Americas — ServiceNow</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Validated Practices -->
+    <div class="validated">
+      <div class="section-eyebrow mono validated-eyebrow">ServiceNow Validated Practices</div>
+      <h3 class="validated-title">Proven expertise, <em>vetted by ServiceNow.</em></h3>
+      <div class="validated-grid">
+        <div class="validated-card">
+          <svg class="validated-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M20 6L9 17l-5-5"/>
+          </svg>
+          <div class="validated-name">Public Sector Digital Services</div>
+        </div>
+        <div class="validated-card">
+          <svg class="validated-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M20 6L9 17l-5-5"/>
+          </svg>
+          <div class="validated-name">Now Assist for CSM</div>
+        </div>
+        <div class="validated-card">
+          <svg class="validated-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M20 6L9 17l-5-5"/>
+          </svg>
+          <div class="validated-name">Customer Service Management</div>
+        </div>
       </div>
     </div>
   </div>
@@ -823,66 +1132,115 @@
     <div class="section-eyebrow mono">The Knowledge 2026 crew</div>
     <h2 class="section-title">Say hi to <em>the team.</em></h2>
     <p class="section-intro">
-      The folks below are on the ground at Knowledge 2026. Reach out, grab coffee, talk shop — we'd love to meet you.
+      Our leadership and ServiceNow practice are on the ground at Knowledge 2026. Reach out, grab coffee, talk shop — we'd love to meet you.
     </p>
 
     <div class="team-grid">
-      <!-- Person cards (placeholders — easy to edit) -->
       <div class="person">
-        <div class="person-avatar">FN</div>
-        <div class="person-name">First Name Last</div>
-        <div class="person-title">Role / Title at Ignyte</div>
-        <a href="https://www.linkedin.com/in/PLACEHOLDER" class="person-link" target="_blank" rel="noopener">
+        <div class="person-avatar">AS</div>
+        <div class="person-name">Arman Shariati</div>
+        <div class="person-title">Chief Executive Officer</div>
+        <a href="https://www.linkedin.com/in/arman-shariati-b3bb34/" class="person-link" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           LinkedIn
         </a>
       </div>
 
       <div class="person">
-        <div class="person-avatar">FN</div>
-        <div class="person-name">First Name Last</div>
-        <div class="person-title">Role / Title at Ignyte</div>
-        <a href="https://www.linkedin.com/in/PLACEHOLDER" class="person-link" target="_blank" rel="noopener">
+        <div class="person-avatar">AJ</div>
+        <div class="person-name">Alex Johnson</div>
+        <div class="person-title">Chief Revenue Officer</div>
+        <a href="https://www.linkedin.com/in/alex-johnson-5ba85035/" class="person-link" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           LinkedIn
         </a>
       </div>
 
       <div class="person">
-        <div class="person-avatar">FN</div>
-        <div class="person-name">First Name Last</div>
-        <div class="person-title">Role / Title at Ignyte</div>
-        <a href="https://www.linkedin.com/in/PLACEHOLDER" class="person-link" target="_blank" rel="noopener">
+        <div class="person-avatar">AS</div>
+        <div class="person-name">Alireza Shadman</div>
+        <div class="person-title">Managing Director · CTA</div>
+        <a href="https://www.linkedin.com/in/alireza-shadman-a59a8a25/" class="person-link" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           LinkedIn
         </a>
       </div>
 
       <div class="person">
-        <div class="person-avatar">FN</div>
-        <div class="person-name">First Name Last</div>
-        <div class="person-title">Role / Title at Ignyte</div>
-        <a href="https://www.linkedin.com/in/PLACEHOLDER" class="person-link" target="_blank" rel="noopener">
+        <div class="person-avatar">ML</div>
+        <div class="person-name">Matthew LoPresti</div>
+        <div class="person-title">Solution Architect · CTA</div>
+        <a href="https://www.linkedin.com/in/matt-lopresti/" class="person-link" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           LinkedIn
         </a>
       </div>
 
       <div class="person">
-        <div class="person-avatar">FN</div>
-        <div class="person-name">First Name Last</div>
-        <div class="person-title">Role / Title at Ignyte</div>
-        <a href="https://www.linkedin.com/in/PLACEHOLDER" class="person-link" target="_blank" rel="noopener">
+        <div class="person-avatar">GT</div>
+        <div class="person-name">George Tucker</div>
+        <div class="person-title">Solution Architect</div>
+        <a href="https://www.linkedin.com/in/george-tucker-se/" class="person-link" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           LinkedIn
         </a>
       </div>
 
       <div class="person">
-        <div class="person-avatar">FN</div>
-        <div class="person-name">First Name Last</div>
-        <div class="person-title">Role / Title at Ignyte</div>
-        <a href="https://www.linkedin.com/in/PLACEHOLDER" class="person-link" target="_blank" rel="noopener">
+        <div class="person-avatar">CM</div>
+        <div class="person-name">Christian Morris</div>
+        <div class="person-title">Senior Technology Consultant</div>
+        <a href="https://www.linkedin.com/in/christian-morris-leadership/" class="person-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="person">
+        <div class="person-avatar">AH</div>
+        <div class="person-name">Alexander Hinkle</div>
+        <div class="person-title">Senior Technology Consultant</div>
+        <a href="https://www.linkedin.com/in/alexander-m-hinkle/" class="person-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="person">
+        <div class="person-avatar">DD</div>
+        <div class="person-name">David Dayton</div>
+        <div class="person-title">Technology Consultant</div>
+        <a href="https://www.linkedin.com/in/davidjamesdayton/" class="person-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="person">
+        <div class="person-avatar">SK</div>
+        <div class="person-name">Salma Khairat</div>
+        <div class="person-title">Technology Consultant</div>
+        <a href="https://www.linkedin.com/in/salmakhairat/" class="person-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="person">
+        <div class="person-avatar">KJ</div>
+        <div class="person-name">Kiron Jayesh</div>
+        <div class="person-title">Technology Consultant</div>
+        <a href="https://www.linkedin.com/in/kironjayesh" class="person-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="person">
+        <div class="person-avatar">NB</div>
+        <div class="person-name">Nivetha Balu</div>
+        <div class="person-title">Technology Consultant</div>
+        <a href="https://www.linkedin.com/in/nivetha-balu/" class="person-link" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           LinkedIn
         </a>
